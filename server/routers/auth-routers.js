@@ -10,4 +10,6 @@ router.route("/").get(authControllers.home)
 //     res.status(200).send("loggin sam")
 // })
 router.route("/login").get(authControllers.login)
+router.route("/register").post(authControllers.register)
+
 export default router

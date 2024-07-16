@@ -8,7 +8,8 @@ and other functionalities provided by Express to handle incoming HTTP requests a
 back to clients. */
 const app = express()
 const PORT = 5000 
-
+//bhai json me lenden ho
+app.use(express.json())
 //using router instead of directly defining the req/ routes in the server.js, to make server.js clean we are doing this
 import routers from "./routers/auth-routers.js"
 // app.use(routers)
