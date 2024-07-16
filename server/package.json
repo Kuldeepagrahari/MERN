@@ -1,0 +1,21 @@
+{
+  "name": "server",
+  "version": "1.0.0",
+  "description": "backend seekhna h!",
+  "main": "server.js",
+  "type":"module",
+  "scripts": {
+   
+    "start": "nodemon server.js"
+  },
+  "repository": {
+    "type": "git",
+    "url": "MERN"
+  },
+  "author": "kuldeep agrahari",
+  "license": "ISC",
+  "dependencies": {
+    "express": "^4.19.2",
+    "nodemon": "^3.1.4"
+  }
+}
