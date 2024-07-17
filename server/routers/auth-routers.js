@@ -9,7 +9,7 @@ router.route("/").get(authControllers.home)
 // router.route("/login").get((req, res) => {
 //     res.status(200).send("loggin sam")
 // })
-router.route("/login").get(authControllers.login)
+router.route("/login").post(authControllers.login)
 router.route("/register").post(authControllers.register)
 
 export default router
