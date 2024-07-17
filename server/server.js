@@ -28,7 +28,12 @@ app.use("/api/auth" , routers)
 
 /* The code `app.listen(PORT, () => { console.log(`server is running at  port`) })` is setting
 up the Express application to listen on a specific port for incoming HTTP requests. */
-app.listen(PORT, () => {
-    console.log(`server is running at ${PORT} port`)
+
+import connectDb from "./utils/db.js"
+connectDb().then(() => {
+    app.listen(PORT, () => {
+        console.log(`server is running at ${PORT} port`)
+    })
 })
+
 
