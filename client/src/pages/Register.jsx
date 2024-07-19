@@ -1,7 +1,31 @@
-import React from 'react'
+import React, { useState } from 'react'
 import registerPic from "../assets/register.png"
 import {Link} from "react-router-dom"
 const Register = () => {
+
+  const [userdata , setUserdata] = useState({
+    username:"",
+    email:"",
+    phone:"",
+    password:""
+  })
+
+  const handleUser = (e) => {
+    let value = e.target.value
+    let name = e.target.name
+     setUserdata({
+      ...userdata,[name]:value
+     })
+    //  console.log(e)
+  }
+// ...userdata se hoga ye ki baki cheeze append ho jaengi waise ke waise 
+// [name]:value  => name key ki value update hogi bas with corresponding value
+  const handleSubmit = (e) => {
+    // jab hum form submit krte h to vo by default page ko refresh kr deta h
+   e.preventDefault()
+   console.log(userdata)
+  }
+
   return (
     <div className='register'>
       <div id="reg-cont">
@@ -14,12 +38,12 @@ const Register = () => {
      </div>
      <div className="reg-right">
          <h1>Register</h1>
-        <form action="">
+        <form onSubmit={handleSubmit}>
 
-          <input autoComplete="off" type="text" placeholder='Username' />
-          <input type="email" placeholder='Email' />
-          <input autoComplete="off" type="text" placeholder='Phone' />
-          <input autoComplete="off" type="password" placeholder='Password'/>
+          <input  autoComplete="off" type="text" name="username" placeholder='Username' value={userdata.username}  onChange={handleUser}/>
+          <input type="email" placeholder='Email'name='email' value={userdata.email} onChange={handleUser} />
+          <input autoComplete="off" type="text" name='phone' placeholder='Phone' value={userdata.phone}  onChange={handleUser}/>
+          <input autoComplete="off" type="password" name='password' placeholder='Password' value={userdata.password} onChange={handleUser}/>
           <button type='submit'>Sign Up</button>
         </form>
   

@@ -1,6 +1,26 @@
-import React from 'react'
+import React, { useState } from 'react'
 import { Link } from 'react-router-dom'
 const Login = () => {
+
+    const [userdata, setUserdata] = useState({
+        email:"",
+        password:""
+    })
+
+    const handleUserdata = (e) => {
+        // input me name aur value hona chahiye, name se pata chalta h ki konsa input h value se pta chalta h ki uski user ne kya value di h
+        let name = e.target.name 
+        let value = e.target.value 
+
+        setUserdata({
+            ...userdata,[name]:value
+        })
+    }
+
+    const handleSubmit = (e) => {
+        e.preventDefault()
+        console.log(userdata)
+    }
     return (
         <div className='login'>
             <div className="login-cont">
@@ -11,12 +31,12 @@ const Login = () => {
                 </div>
                 <div className="login-right">
                     <h1>Login</h1>
-                    <form action="">
+                    <form onSubmit={handleSubmit}>
 
 
-                        <input type="email" placeholder='Email' />
+                        <input type="email" placeholder='Email' value={userdata.email}name='email' onChange={handleUserdata}/>
 
-                        <input type="password" placeholder='Password' />
+                        <input type="password" placeholder='Password' value={userdata.password}name='password' onChange={handleUserdata} />
                         <button type='submit'>Sign In</button>
 
                     </form>

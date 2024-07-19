@@ -4,7 +4,7 @@ const Contact = () => {
   return (
     <div className='contact'>
      <div className="con-left">
-       <img src="" alt="con-pic" />
+       <img src="https://img.freepik.com/premium-vector/people-working-concept-illustration_958800-113324.jpg?size=626&ext=jpg&ga=GA1.1.1114204752.1718366789&semt=ais_user" alt="con-pic" />
      </div>
      <div className="con-right">
       <h1>Contact Me</h1>
