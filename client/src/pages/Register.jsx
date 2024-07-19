@@ -4,7 +4,7 @@ import {Link} from "react-router-dom"
 const Register = () => {
   return (
     <div className='register'>
-      <div className="reg-cont">
+      <div id="reg-cont">
      <div className="reg-left">
       
        <img src={registerPic} alt="" />
@@ -16,10 +16,10 @@ const Register = () => {
          <h1>Register</h1>
         <form action="">
 
-          <input type="text" placeholder='Username' />
+          <input autoComplete="off" type="text" placeholder='Username' />
           <input type="email" placeholder='Email' />
-          <input type="text" placeholder='Phone' />
-          <input type="password" placeholder='Password'/>
+          <input autoComplete="off" type="text" placeholder='Phone' />
+          <input autoComplete="off" type="password" placeholder='Password'/>
           <button type='submit'>Sign Up</button>
         </form>
   
