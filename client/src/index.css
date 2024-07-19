@@ -231,24 +231,33 @@ header h1 a{
   background-color:white;
   align-self: center;
   height: 75vh;
-  width:90%;
+  width:80%;
   display: flex;
   align-items: center;
   justify-content: center;
   margin-top: 5vh;
-  margin-left: 5vw;
-  margin-right: 5vw;
+  margin-left: 10vw;
+  margin-right: 10vw;
+  border-radius: 10px;
+  box-shadow: 10px 10px 100px skyblue;
 }
 .con-left{
-  width:100%;
+  width:50%;
   height:100%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+.con-left img{
+  /* width:100%; */
+  height: 100%;
 }
 .con-right{
   display: flex;
   flex-direction: column;
   align-items: center;
   justify-content: space-around;
-  width: 100%;
+  width: 50%;
   height:100%;
 }
 .contact form{
@@ -265,8 +274,8 @@ header h1 a{
   width: 70%;
   height: 7vh;
   padding: 5px 10px;
-  color: white;
-  background-color: rgb(40, 40, 40);
+  color: black;
+  background-color: rgb(209, 209, 255);
   border-radius: 5px;
   border: none;
   font-size: 1.3vw;
@@ -276,10 +285,10 @@ header h1 a{
 .contact form textarea{
   width: 70%;
   height: 25vh;
-  color:white;
+  color:black;
   padding:5px 10px;
   border-radius: 5px;
-  background-color:rgb(40, 40, 40);
+  background-color:rgb(209, 209, 255);
   border: none;
   font-weight: bold;
   font-size: 1.3vw;
@@ -298,9 +307,23 @@ header h1 a{
   margin-top: 10px;
 }
 .con-right h1{
-  color:white;
+  color:blue;
   font-weight: bold;
   font-size: 3vw;
+}
+.con-mid{
+  width:30%;
+}
+.con-mid p{
+  color:black;
+  font-size:1.3vw;
+  font-weight: bold;
+}
+.con-mid p a{
+  color:blue;
+  list-style: none;
+  text-decoration: none;
+  font-weight: bold;
 }
 .home{
   margin-top: 10vh;
@@ -345,7 +368,7 @@ header h1 a{
 .home-left h4{
   font-size: 2.5vw;
   font-weight: bolder;
-  color:blue;
+  color:rgb(134, 65, 245);
 }
 .home-left p{
   font-size: 1.4vw;
