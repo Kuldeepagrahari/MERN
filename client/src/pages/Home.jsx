@@ -7,7 +7,7 @@ const Home = () => {
       <div className="home-left">
         <h5>Welcome to </h5>
         <h1>SamTechnicals.</h1>
-        <h4> Full Stack Developer </h4>
+        <h4> Full Stack Development </h4>
         <p> I Provide Best Possible Services Related to Web Development, DSA and Competitive Programming </p>
           <div className="home-links">
           <Link to="/services"><button>Explore Services</button></Link>
