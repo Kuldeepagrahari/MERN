@@ -7,7 +7,7 @@ const Service = () => {
      <h1>My services & Blogs</h1>
      <div className="service-container">
       <div className="service-card">
-        <img src="https://img.freepik.com/free-vector/flat-customer-service-week-illustration_23-2149644201.jpg?ga=GA1.1.1114204752.1718366789&semt=sph" alt="" />
+        <img src="https://img.icons8.com/?size=128&id=WMvhDPZBJ9X2&format=png" alt="" />
         <div className="ser-card-info">
              <h3>Title</h3>
              <p>Lorem ipsum dolor sit, amet consectetur adipisicing elit. Nam iure officiis ipsum 
@@ -16,7 +16,7 @@ const Service = () => {
         </div>
       </div>
       <div className="service-card">
-        <img src="https://img.freepik.com/free-vector/flat-customer-service-week-illustration_23-2149644201.jpg?ga=GA1.1.1114204752.1718366789&semt=sph" alt="" />
+        <img src="https://img.icons8.com/?size=128&id=WMvhDPZBJ9X2&format=png" alt="" />
         <div className="ser-card-info">
              <h3>Title</h3>
              <p>Lorem ipsum dolor sit, amet consectetur adipisicing elit. Nam iure officiis ipsum 
@@ -25,7 +25,7 @@ const Service = () => {
         </div>
       </div>
       <div className="service-card">
-        <img src="https://img.freepik.com/free-vector/flat-customer-service-week-illustration_23-2149644201.jpg?ga=GA1.1.1114204752.1718366789&semt=sph" alt="" />
+        <img src="https://img.icons8.com/?size=128&id=WMvhDPZBJ9X2&format=png" alt="" />
         <div className="ser-card-info">
              <h3>Title</h3>
              <p>Lorem ipsum dolor sit, amet consectetur adipisicing elit. Nam iure officiis ipsum 
@@ -34,7 +34,7 @@ const Service = () => {
         </div>
       </div>
       <div className="service-card">
-        <img src="https://img.freepik.com/free-vector/flat-customer-service-week-illustration_23-2149644201.jpg?ga=GA1.1.1114204752.1718366789&semt=sph" alt="" />
+        <img src="https://img.icons8.com/?size=128&id=WMvhDPZBJ9X2&format=png" alt="" />
         <div className="ser-card-info">
              <h3>Title</h3>
              <p>Lorem ipsum dolor sit, amet consectetur adipisicing elit. Nam iure officiis ipsum 
@@ -43,7 +43,7 @@ const Service = () => {
         </div>
       </div>
       <div className="service-card">
-        <img src="https://img.freepik.com/free-vector/flat-customer-service-week-illustration_23-2149644201.jpg?ga=GA1.1.1114204752.1718366789&semt=sph" alt="" />
+        <img src="https://img.icons8.com/?size=128&id=WMvhDPZBJ9X2&format=png" alt="" />
         <div className="ser-card-info">
              <h3>Title</h3>
              <p>Lorem ipsum dolor sit, amet consectetur adipisicing elit. Nam iure officiis ipsum 
@@ -52,7 +52,7 @@ const Service = () => {
         </div>
       </div>
       <div className="service-card">
-        <img src="https://img.freepik.com/free-vector/flat-customer-service-week-illustration_23-2149644201.jpg?ga=GA1.1.1114204752.1718366789&semt=sph" alt="" />
+        <img src="https://img.icons8.com/?size=128&id=WMvhDPZBJ9X2&format=png" alt="" />
         <div className="ser-card-info">
              <h3>Title</h3>
              <p>Lorem ipsum dolor sit, amet consectetur adipisicing elit. Nam iure officiis ipsum 

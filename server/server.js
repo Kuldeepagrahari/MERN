@@ -2,6 +2,7 @@
 file. Express is a popular Node.js web application framework that provides a set of features for
 building web applications and APIs. */
 import express from "express"
+import cors from "cors"
 
 /* `const app = express()` is creating an instance of the Express framework, which will be used to set
 up and configure the web application. This instance `app` will be used to define routes, middleware,
@@ -9,6 +10,12 @@ and other functionalities provided by Express to handle incoming HTTP requests a
 back to clients. */
 const app = express()
 const PORT = 5000 
+//bhai pehle frontend ko access to de backend ka tab to data ayega aur tu json me handle karega
+app.use(cors({
+    origin:"http://localhost:5173",
+    methods:["GET", "POST", "PUT", "PATCH", "DELETE"],
+    credentials:true
+}))
 //bhai json me lenden ho
 app.use(express.json())
 //using router instead of directly defining the req/ routes in the server.js, to make server.js clean we are doing this

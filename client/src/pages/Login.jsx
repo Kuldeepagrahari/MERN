@@ -1,6 +1,8 @@
 import React, { useState } from 'react'
 import { Link } from 'react-router-dom'
+import { useNavigate } from 'react-router-dom'
 const Login = () => {
+    const navigation = useNavigate()
 
     const [userdata, setUserdata] = useState({
         email:"",
@@ -17,9 +19,26 @@ const Login = () => {
         })
     }
 
-    const handleSubmit = (e) => {
+    const handleSubmit = async(e) => {
         e.preventDefault()
-        console.log(userdata)
+        // console.log(userdata)
+
+        const response = await fetch("http://localhost:5000/api/auth/login", {
+            method:"POST",
+            headers:{
+                'Content-Type':"application/json"
+            },
+            body:JSON.stringify(userdata)
+        }) 
+
+        if ( response.ok){
+            setUserdata({email:"",
+            password:""})
+
+            navigation("/")
+        }else{
+            alert("Invalid Credentials")
+        }
     }
     return (
         <div className='login'>

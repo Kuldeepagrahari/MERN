@@ -1,7 +1,9 @@
 import React, { useState } from 'react'
 import registerPic from "../assets/register.png"
 import {Link} from "react-router-dom"
+import { useNavigate } from 'react-router-dom'
 const Register = () => {
+  const navigation = useNavigate()
 
   const [userdata , setUserdata] = useState({
     username:"",
@@ -20,10 +22,29 @@ const Register = () => {
   }
 // ...userdata se hoga ye ki baki cheeze append ho jaengi waise ke waise 
 // [name]:value  => name key ki value update hogi bas with corresponding value
-  const handleSubmit = (e) => {
+  const handleSubmit = async (e) => {
     // jab hum form submit krte h to vo by default page ko refresh kr deta h
    e.preventDefault()
-   console.log(userdata)
+  //  console.log(userdata)
+
+   const response = await fetch('http://localhost:5000/api/auth/register',{
+    method:'POST',
+    headers:{
+      'Content-Type':'application/json'
+    },
+    body:JSON.stringify(userdata)
+
+   })
+    
+   if ( response.ok ){
+    setUserdata({ username:"",
+    email:"",
+    phone:"",
+    password:""})
+   }
+
+   navigation("/login")
+   console.log(response)
   }
 
   return (
