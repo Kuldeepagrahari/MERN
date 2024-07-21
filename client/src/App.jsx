@@ -24,7 +24,7 @@ function App() {
       <Route path="/register" element={<Register/>}></Route>
       <Route path="/contact" element={<Contact/>}></Route>
       <Route path="/services" element={<Service/>}></Route>
-      
+      <Route path="/logout" element={<Logout/>}></Route>
       <Route path="*" element={<Error/>}></Route>
     </Routes>
        

@@ -42,7 +42,7 @@ const Contact = () => {
       
      <iframe
         src="https://www.google.com/maps/embed?pb=!1m14!1m8!1m3!1d5553269.316223444!2d80.946166!3d26.8466937!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x39852a9da3aa84ab%3A0x8e1a7ecf076e2a22!2sBari%20Urf%20Sarai%20Akil%2C%20Uttar%20Pradesh%20212216!5e1!3m2!1sen!2sin!4v1721471105864!5m2!1sen!2sin"
-        width="1000"
+        width="965"
         height="450"
         style={{ border: 0 }}
         allowFullScreen=""

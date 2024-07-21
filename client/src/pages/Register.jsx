@@ -2,8 +2,13 @@ import React, { useState } from 'react'
 import registerPic from "../assets/register.png"
 import {Link} from "react-router-dom"
 import { useNavigate } from 'react-router-dom'
+
+import {useAuth} from  "../storeContext/authContext.jsx" 
+
 const Register = () => {
   const navigation = useNavigate()
+
+  const {StoreTokenInLS} = useAuth()
 
   const [userdata , setUserdata] = useState({
     username:"",
@@ -35,16 +40,25 @@ const Register = () => {
     body:JSON.stringify(userdata)
 
    })
+
     
    if ( response.ok ){
+    const res_data = await response.json()
+    
+    StoreTokenInLS(res_data.token)
+    
+    console.log(res_data.token)
+
+    
     setUserdata({ username:"",
     email:"",
     phone:"",
     password:""})
    }
+   console.log("sam")
 
    navigation("/login")
-   console.log(response)
+  
   }
 
   return (
