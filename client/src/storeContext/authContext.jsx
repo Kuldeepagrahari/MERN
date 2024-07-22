@@ -8,6 +8,7 @@ export const AuthContext = createContext()
 //gaadi
  export const AuthProvider = ({children}) => {
     const [token, setToken] = useState(localStorage.getItem("token"))
+    const [userdata, setUserdata ] = useState("")
     // saaman jo dena h
     const StoreTokenInLS = (token) => {
        // turant reg/login ke baad token ka state change hoona chahiye jisse isloggedin true ho aur logout turant dikhe
@@ -21,6 +22,35 @@ export const AuthContext = createContext()
         setToken('')
         return localStorage.removeItem('token')
     }
+    const gettingUserData = async () =>{
+
+        try{
+            const response = await fetch('http://localhost:5000/api/auth/user', {
+                method:'GET',
+                headers:{
+                    "Authorization":token
+                }
+        
+            })
+            if ( response.ok ){
+                const data = await response.json()
+                setUserdata(data)
+                console.log("data from authcontext" + data.email)
+            }
+
+            
+        }catch(err){
+            console.log(err)
+        }
+      
+    }
+
+    //jab token change ho to 
+    useEffect(() => {
+        if (token) {
+            gettingUserData();
+        }
+    }, [token]);
 
     // useEffect(() => {
     //     const tokenn = localStorage.getItem('token')
@@ -30,7 +60,7 @@ export const AuthContext = createContext()
     //   }, []);
 
     return (
-        <AuthContext.Provider value={{isloggedIn, logoutUser, StoreTokenInLS}}>
+        <AuthContext.Provider value={{isloggedIn, logoutUser, StoreTokenInLS, userdata}}>
             {children}
         </AuthContext.Provider>
     )

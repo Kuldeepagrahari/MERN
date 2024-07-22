@@ -1,12 +1,24 @@
 import React, { useState } from 'react'
-
+import { useAuth } from '../storeContext/authContext.jsx'
 const Contact = () => {
+  const {userdata} = useAuth()
 
+ 
   const [contdata, setContdata] = useState({
     name:"",
     email:"",
     message:""
   })
+
+  // ek baar setContactdata call hone ke baad dobara call hone se rokne ke liye
+  const [isNotset, setIsNotset] = useState(true)
+
+  if ( isNotset && userdata){
+     console.log(userdata)
+     setContdata({name:userdata.username, email:userdata.email, message:"ram"})
+     setIsNotset(false)
+     console.log(contdata)
+  }
 
   const handleContdata = (e) => {
     let name = e.target.name 
@@ -20,7 +32,7 @@ const Contact = () => {
   const handleSubmit  = async (e) => {
      e.preventDefault()
     //  console.log(contdata)
-
+     console.log(userdata)
      const response = await fetch('http://localhost:5000/contact', {
       method:'POST',
       headers:{
@@ -28,7 +40,7 @@ const Contact = () => {
       },
       body:JSON.stringify(contdata)
      })
-
+     
 
      if ( response.ok ){
       const server_res_data = await response.json()
@@ -47,8 +59,8 @@ const Contact = () => {
      <div className="con-right">
       <h1>Contact Me</h1>
       <form onSubmit={handleSubmit}>
-        <input type="text" placeholder='Name' name='name' onChange={handleContdata}/>
-        <input type="email" placeholder='Email' name='email' onChange={handleContdata} autofill="off"/>
+        <input type="text" placeholder='Name' name='name' value={userdata.username} onChange={handleContdata}/>
+        <input type="email" placeholder='Email' name='email' value={userdata.email}onChange={handleContdata} autofill="off"/>
         <textarea name="message" id="" cols="25" rows="10" placeholder='Write your message from here' onChange={handleContdata}></textarea>
         <button type='submit'>Submit</button>
       </form>

@@ -1,9 +1,26 @@
-import React from 'react'
+import React, { useState } from 'react'
 import my_pic from "../assets/pic1.jpg"
 import { Link } from 'react-router-dom'
+import { useAuth } from '../storeContext/authContext.jsx'
 const About = () => {
+
+  const {userdata} = useAuth()
+  console.log(userdata)
+  const [isNotset, setIsNotset] = useState(true)
+  const [username, setusername] = useState("")
+
+  if ( isNotset && userdata){
+     console.log('about' + userdata)
+     setusername(userdata.username)
+     setIsNotset(false)
+    
+  }
+
   return (
+    <>
+    <h1 id="about-head">hey! <span style={{color:"pink"}}> {username}</span>, Hope your're Well good,  Thanks for Viewing my Profile </h1>
     <div className='about'>
+      
      <div className="about-left">
           <div className="about-my-info">
        
@@ -119,6 +136,7 @@ const About = () => {
 
     
     </div>
+    </>
   )
 }
 

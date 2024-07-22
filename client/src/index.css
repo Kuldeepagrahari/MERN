@@ -20,7 +20,16 @@ body{
   
 
 }
+#about-head{
+  background-color: rgb(22, 22, 22);
+  color:white;
+  margin-top: 5vh;
+  padding: 3vh;
+  font-size: 2vw;
+  border-radius: 5px;
+  width: 100%;
 
+}
 .nav header{
   display: flex;
   align-items: center;
