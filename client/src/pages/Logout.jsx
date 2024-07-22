@@ -1,9 +1,13 @@
 import React, { useEffect } from 'react'
 import { useAuth } from '../storeContext/authContext'
-import
+import { Navigate } from 'react-router-dom'
 const Logout = () => {
+
     const {logoutUser} = useAuth()
- useEffect(logoutUser)
+   
+    logoutUser()
+    return <Navigate to="/login"></Navigate>
+    
 }
 
 export default Logout

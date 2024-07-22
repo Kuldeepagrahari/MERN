@@ -6,7 +6,7 @@ import Register from "./pages/Register.jsx"
 import Login from "./pages/Login.jsx"
 import Navbar from "./components/Navbar.jsx"
 import Error from "./pages/Error.jsx"
-
+import Logout from "./pages/Logout.jsx"
 import {Routes, Route} from "react-router-dom"
 
 import "./index.css"   

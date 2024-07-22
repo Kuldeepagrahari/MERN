@@ -1,5 +1,5 @@
 import { createContext, useContext, useState } from "react";
-
+import { useEffect } from "react";
 export const AuthContext = createContext()
 
 
@@ -10,15 +10,24 @@ export const AuthContext = createContext()
     const [token, setToken] = useState(localStorage.getItem("token"))
     // saaman jo dena h
     const StoreTokenInLS = (token) => {
-        console.log("stl")
+       // turant reg/login ke baad token ka state change hoona chahiye jisse isloggedin true ho aur logout turant dikhe
+        setToken(token)
         return  localStorage.setItem('token', token)
     }
     let isloggedIn = !!token
-    
+    console.log('isloggedin' + isloggedIn)
+
     const logoutUser = () => {
         setToken('')
         return localStorage.removeItem('token')
     }
+
+    // useEffect(() => {
+    //     const tokenn = localStorage.getItem('token')
+    //     if (tokenn) {
+    //       setToken(token);
+    //     }
+    //   }, []);
 
     return (
         <AuthContext.Provider value={{isloggedIn, logoutUser, StoreTokenInLS}}>

@@ -17,11 +17,27 @@ const Contact = () => {
     })
   }
 
-  const handleSubmit  = (e) => {
+  const handleSubmit  = async (e) => {
      e.preventDefault()
-     console.log(contdata)
+    //  console.log(contdata)
+
+     const response = await fetch('http://localhost:5000/contact', {
+      method:'POST',
+      headers:{
+        'Content-Type':'application/json'
+      },
+      body:JSON.stringify(contdata)
+     })
+
+
+     if ( response.ok ){
+      const server_res_data = await response.json()
+      setContdata({ message:""})
+      alert(server_res_data.msg + ' Thankyou for your messaging , I will look into it as soon as possible')
+      
+     }
   }
-  return (
+  return (  
     <div className='contact'>
       <div className="cont-container">
      <div className="con-left">
