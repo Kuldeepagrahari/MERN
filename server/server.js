@@ -21,11 +21,13 @@ app.use(express.json())
 //using router instead of directly defining the req/ routes in the server.js, to make server.js clean we are doing this
 import routers from "./routers/auth-routers.js"
 import router from "./routers/contact-route.js"
+import SerRouter from "./routers/service-route.js"
 // app.use(routers)
 
 // we can also define the path / loc where we want to mount our routers into main express app
 app.use("/api/auth" , routers)
 app.use(router)
+app.use("/api", SerRouter)
 // -------------------------------------------------------------------------------------------------
 
 // app.get("/", (req, res) =>{

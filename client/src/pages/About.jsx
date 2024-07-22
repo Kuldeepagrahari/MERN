@@ -18,7 +18,7 @@ const About = () => {
 
   return (
     <>
-    <h1 id="about-head">hey! <span style={{color:"pink"}}> {username}</span>, Hope your're Well good,  Thanks for Viewing my Profile </h1>
+    <h1 id="about-head">hey! <span style={{color:"pink", fontSize:"2.5vw"}}> {username}</span>, Hope your're Well good,  Thanks for Viewing my Profile </h1>
     <div className='about'>
       
      <div className="about-left">
