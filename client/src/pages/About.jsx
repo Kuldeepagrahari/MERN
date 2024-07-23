@@ -1,8 +1,42 @@
-import React, { useState } from 'react'
+import React, { useEffect, useState } from 'react'
 import my_pic from "../assets/pic1.jpg"
 import { Link } from 'react-router-dom'
 import { useAuth } from '../storeContext/authContext.jsx'
 const About = () => {
+
+  // --------------------- fetching project data --------------------------------
+
+    const [projdata, setProjdata] = useState([])
+    const [isProjSet, setIsProjSet] = useState(false)
+   
+    const fetchingProjData = async () => {
+       try{
+         const projDataResponse = await fetch('http://localhost:5000/api/projects', {
+          method:'GET'
+         })
+          
+         if (!projDataResponse){
+          throw new Error('Error fetching projects')
+         }
+
+         if(!isProjSet && projDataResponse.ok){
+          const projData = await projDataResponse.json()
+          setProjdata(projData)
+          setIsProjSet(true)
+     
+         }
+
+
+       }catch(err){
+        console.log(err)
+       }
+    }
+    
+    useEffect(()=>{
+      fetchingProjData(),[]
+    })
+
+  // -----------------------------------------------------------------------------------
 
   const {userdata} = useAuth()
   console.log(userdata)
@@ -28,10 +62,10 @@ const About = () => {
               <img src={my_pic} alt="" />
             </div>
             <div className="about-me-right"> 
-              <h4>Hi, I'm </h4>
+              <h4 style={{color:"rgb(82, 231, 245)"}}>Hi, I'm </h4>
               <h1>Kuldeep Agrahari</h1>
               <p>Persuing my Btech <span>(2022 - 26)</span>in <span>CSE</span> from </p>
-              <h3>PDPM IIIT DM, Jabalpur</h3>
+              <h3 style={{color:"rgb(82, 231, 245)"}}>PDPM IIIT DM, Jabalpur</h3>
               <p>I Have great <span>PROBLEM SOLVING</span> Skills, Good at <span>Full Stack Development</span> and good at Core CS Subjects. You can Download my CV <Link to=""><button id="resume-btn">Resume</button></Link></p>
               <div className="about-me-cont">
                 <h5><img src="https://img.icons8.com/?size=96&id=13800&format=png" alt="" /> Sarai Akil Kaushambi, Prayagraj, UP, India</h5>
@@ -75,60 +109,22 @@ const About = () => {
      
      <h1>My Projects</h1>
      <div className="service-container">
-      <div className="service-card">
-        <img src="https://img.icons8.com/?size=128&id=D47p6uA2kE9C&format=png" alt="" />
-        <div className="ser-card-info">
-            <span><h3>Title</h3> <Link to=""><img src="https://img.icons8.com/?size=160&id=xPX4qmtKvtBp&format=png" alt="" />repo</Link></span> 
-             <p>Lorem ipsum dolor sit, amet consectetur adipisicing elit. Nam iure officiis ipsum 
-
-             </p>
+    {
+      projdata.map((individualproj, index)=>{
+        return (
+          <div className="service-card" key={index}>
+          <img src="https://img.icons8.com/?size=128&id=D47p6uA2kE9C&format=png" alt="" />
+          <div className="ser-card-info">
+              <span><h3>{individualproj.topic}</h3> <Link to={individualproj.link}><img src="https://img.icons8.com/?size=160&id=xPX4qmtKvtBp&format=png" alt="" />repo</Link></span> 
+               <p>{individualproj.desc}
+  
+               </p>
+          </div>
         </div>
-      </div>
-      <div className="service-card">
-        <img src="https://img.icons8.com/?size=128&id=D47p6uA2kE9C&format=png" alt="" />
-        <div className="ser-card-info">
-        <span><h3>Title</h3> <Link to=""><img src="https://img.icons8.com/?size=160&id=bxwYtpFxQSxq&format=png" alt="" />github repo</Link></span> 
-             <p>Lorem ipsum dolor sit, amet consectetur adipisicing elit. Nam iure officiis ipsum 
-
-             </p>
-        </div>
-      </div>
-      <div className="service-card">
-        <img src="https://img.icons8.com/?size=128&id=D47p6uA2kE9C&format=png" alt="" />
-        <div className="ser-card-info">
-        <span><h3>Title</h3> <Link to=""><img src="https://img.icons8.com/?size=128&id=48181&format=png" alt="" />github repo</Link></span> 
-             <p>Lorem ipsum dolor sit, amet consectetur adipisicing elit. Nam iure officiis ipsum 
-
-             </p>
-        </div>
-      </div>
-      <div className="service-card">
-        <img src="https://img.icons8.com/?size=128&id=D47p6uA2kE9C&format=png" alt="" />
-        <div className="ser-card-info">
-        <span><h3>Title</h3> <Link to=""><img src="https://img.icons8.com/?size=128&id=48181&format=png" alt="" />github repo</Link></span> 
-             <p>Lorem ipsum dolor sit, amet consectetur adipisicing elit. Nam iure officiis ipsum 
-
-             </p>
-        </div>
-      </div>
-      <div className="service-card">
-        <img src="https://img.icons8.com/?size=128&id=D47p6uA2kE9C&format=png" alt="" />
-        <div className="ser-card-info">
-        <span><h3>Title</h3> <Link to=""><img src="https://img.icons8.com/?size=128&id=48181&format=png" alt="" />github repo</Link></span> 
-             <p>Lorem ipsum dolor sit, amet consectetur adipisicing elit. Nam iure officiis ipsum 
-
-             </p>
-        </div>
-      </div>
-      <div className="service-card">
-        <img src="https://img.icons8.com/?size=128&id=D47p6uA2kE9C&format=png" alt="" />
-        <div className="ser-card-info">
-        <span><h3>Title</h3> <Link to=""><img src="https://img.icons8.com/?size=128&id=48181&format=png" alt="" />github repo</Link></span> 
-             <p>Lorem ipsum dolor sit, amet consectetur adipisicing elit. Nam iure officiis ipsum 
-
-             </p>
-        </div>
-      </div>
+        )
+      })
+    }
+     
  
     </div>
      </div>

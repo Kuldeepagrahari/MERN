@@ -1,5 +1,5 @@
-*{
-  color:rgb(82, 231, 245);
+ *{
+  
   font-family: "Roboto Mono", monospace;
   font-optical-sizing: auto;
   font-weight: 500;
@@ -49,15 +49,18 @@ header ul li {
   font-size: 1.4vw;
   font-weight: bold;
   padding-bottom: 5px;
+  color:rgb(82, 231, 245);
 
 }
 header ul a{
   text-decoration: none;
+  color:rgb(82, 231, 245);
 }
 header h1 a{
   text-decoration: none;
   font-size: 3vw;
   font-weight: bolder;
+  color:rgb(82, 231, 245);
 }
 
 .register{
@@ -389,6 +392,7 @@ header h1 a{
 }
 .home-left h1{
    font-size: 5vw;
+   color:rgb(82, 231, 245);
 }
 .home-left h4{
   font-size: 2.5vw;
@@ -755,4 +759,4 @@ button{
 }
 button:hover{
   transform: scale(1.02);
-}
+} 

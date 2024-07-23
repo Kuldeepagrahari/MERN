@@ -8,14 +8,14 @@ async function login (req , res) {
     try{
         const {email, password} = req.body
         const user = await User.findOne({email})
-        if(!user) return res.status(400).json({msg:"user not found"})
+        if(!user) return res.status(400).json({message:"You dont' have any account, first Register"})
         else{
              const isPasswordCorrect = await user.isPasswordCorrect(password)
              
              if ( !isPasswordCorrect ){
-                return res.status(400).json({msg:"invalid credentials"})
+                return res.status(400).json({message:"invalid credentials"})
              }else{
-                return res.status(200).json({msg:"login successfully!", token:await user.generateToken()})
+                return res.status(200).json({message:"login successfully!", token:await user.generateToken()})
              }
         }
         // await res.status(200).send("login controller sam")
@@ -29,7 +29,8 @@ const register = async(req, res) => {
         const {username, email, phone, password, isAdmin } = req.body
         const userExist = await User.findOne({email:email})
         if ( userExist ){
-            return res.status(400).json({msg:"user already exist"})
+            //response hamesha jaega , agar invalid hai to bhi jisse user ko bata sake error during validation
+            return res.status(400).json({message:"user already exist"})
         }
         // const saltRound = 10
         // const hashed_password = await bcrypt.hash(password, saltRound)

@@ -1,5 +1,6 @@
 import React, { useState } from 'react'
 import { useAuth } from '../storeContext/authContext.jsx'
+import {toast} from 'react-toastify'
 const Contact = () => {
   const {userdata} = useAuth()
 
@@ -41,12 +42,14 @@ const Contact = () => {
       body:JSON.stringify(contdata)
      })
      
-
+     const server_res_data = await response.json()
      if ( response.ok ){
-      const server_res_data = await response.json()
-      setContdata({ message:""})
-      alert(server_res_data.msg + ' Thankyou for your messaging , I will look into it as soon as possible')
       
+      setContdata({ message:""})
+      toast.success( 'Thanks for Messaging me !')
+      
+     }else{
+      toast.error(server_res_data.description ? server_res_data.description : server_res_data.message )
      }
   }
   return (  

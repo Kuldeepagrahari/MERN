@@ -22,12 +22,16 @@ app.use(express.json())
 import routers from "./routers/auth-routers.js"
 import router from "./routers/contact-route.js"
 import SerRouter from "./routers/service-route.js"
+import projRouter from "./routers/projects-route.js"
+import adminRouter from "./routers/admin-route.js"
 // app.use(routers)
 
 // we can also define the path / loc where we want to mount our routers into main express app
 app.use("/api/auth" , routers)
 app.use(router)
 app.use("/api", SerRouter)
+app.use("/api",projRouter)
+app.use("/api/admin", adminRouter)
 // -------------------------------------------------------------------------------------------------
 
 // app.get("/", (req, res) =>{

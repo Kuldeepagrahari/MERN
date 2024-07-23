@@ -1,6 +1,7 @@
 import React, { useState } from 'react'
 import { Link } from 'react-router-dom'
 import { useNavigate } from 'react-router-dom'
+import {toast} from "react-toastify"
 
 import { useAuth } from '../storeContext/authContext'
 const Login = () => {
@@ -33,18 +34,21 @@ const Login = () => {
             },
             body: JSON.stringify(userdata)
         })
+        
+        const res_data = await response.json()
 
         if (response.ok) {
-            const res_data = await response.json()
+            
             StoreTokenInLS(res_data.token)
             setUserdata({
                 email: "",
                 password: ""
             })
-
+            toast.success("Loggin Successfully!")
             navigation("/")
+
         } else {
-            alert("Invalid Credentials")
+            toast.error(res_data.description ? res_data.description : res_data.message)
         }
     }
     return (
