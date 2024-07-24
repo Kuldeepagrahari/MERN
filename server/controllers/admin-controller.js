@@ -11,7 +11,7 @@ const fetchingUserData = async (req, res) => {
     }
     
    }catch(err){
-    next(err)
+    console.log(err)
    }
 }
 
@@ -29,4 +29,26 @@ const fetchingContData = async(req, res) => {
     console.log(err)
  }
 }
-export default {fetchingUserData,fetchingContData}
+
+const deleteUser = async (req, res) => {
+  try{
+     const id = req.params.id
+     console.log(id)
+     await User.deleteOne({_id:id})
+     res.status(200).json("document deleted successfully")
+  }catch(err){
+    console.log(err)
+  }
+}
+const deleteContact = async (req, res) => {
+  try{
+     const id = req.params.id
+     const idd = JSON.stringify(id)
+     console.log("contact id : " + idd)
+     await Contact.deleteOne({_id:idd})
+     res.status(200).json("document deleted successfully")
+  }catch(err){
+    console.log(err)
+  }
+}
+export default {fetchingUserData,fetchingContData, deleteUser, deleteContact}

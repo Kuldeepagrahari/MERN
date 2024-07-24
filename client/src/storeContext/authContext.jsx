@@ -9,6 +9,7 @@ export const AuthContext = createContext()
  export const AuthProvider = ({children}) => {
     const [token, setToken] = useState(localStorage.getItem("token"))
     const [userdata, setUserdata ] = useState("")
+    const AuthorizationToken = token
     // saaman jo dena h
     const StoreTokenInLS = (token) => {
        // turant reg/login ke baad token ka state change hoona chahiye jisse isloggedin true ho aur logout turant dikhe
@@ -60,7 +61,7 @@ export const AuthContext = createContext()
     //   }, []);
 
     return (
-        <AuthContext.Provider value={{isloggedIn, logoutUser, StoreTokenInLS, userdata}}>
+        <AuthContext.Provider value={{isloggedIn, logoutUser, StoreTokenInLS, userdata, AuthorizationToken}}>
             {children}
         </AuthContext.Provider>
     )
