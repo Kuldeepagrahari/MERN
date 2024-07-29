@@ -54,10 +54,10 @@ const AdminAddService = () => {
   };
 
   return (
-    <div>
+    <div className='add-service-page'>
       <h1>Add a Service</h1>
       <form onSubmit={handleSubmit} id="add-service">
-        <div>
+        <div id='upload-service'>
           <label htmlFor="image" className="upload-button">
             <BsCloudUpload /> Upload Service Image
           </label>
@@ -69,7 +69,7 @@ const AdminAddService = () => {
             onChange={handleInput}
           />
         </div>
-        <div>
+        <div id='topic-cost'>
           <input
             type="text"
             placeholder="Topic"
@@ -77,9 +77,7 @@ const AdminAddService = () => {
             value={serviceData.topic}
             onChange={handleInput}
           />
-        </div>
-        <div>
-          <input
+           <input
             type="text"
             placeholder="Cost"
             name="cost"
@@ -87,6 +85,7 @@ const AdminAddService = () => {
             onChange={handleInput}
           />
         </div>
+        
         <div>
           <input
             type="text"

@@ -803,3 +803,179 @@ button:hover{
       width:200px;
      }
  }
+/* ----------------------- admin contact -------------- */
+
+
+
+table {
+  width: 70%;
+  border-collapse: collapse;
+  margin-top: 2vh;
+  margin-left: 2vw;
+ 
+}
+
+thead {
+  background-color: #2c2c2c;
+  border-radius: 20px;
+}
+
+thead tr {
+  color: #ffffff;
+  text-align: left;
+  height: 10vh;
+
+}
+
+thead td {
+  padding: 1vh 1vw;
+  font-size: 1.5vw;
+}
+
+tbody tr {
+  background-color: #1c1c1c;
+  border-bottom: 1px solid #2c2c2c;
+}
+
+tbody tr:hover {
+  background-color: #2c2c2c;
+}
+
+tbody td {
+  padding: 1vh 1vw;
+  font-size: 1.2vw;
+  color: #ffffff;
+}
+
+
+
+
+
+@media screen and (max-width: 768px) {
+  h1 {
+    font-size: 4vw;
+    padding: 4vh 4vw;
+  }
+
+  thead td, tbody td {
+    font-size: 3vw;
+    padding: 2vh 2vw;
+  }
+
+  button {
+    font-size: 4vw;
+  }
+}
+
+@media screen and (max-width: 432px) {
+  h1 {
+    font-size: 5vw;
+    padding: 4vh 4vw;
+  }
+
+  thead td, tbody td {
+    font-size: 4vw;
+    padding: 2vh 2vw;
+  }
+
+  button {
+    font-size: 10vw;
+  }
+
+  table, thead, tbody, th, td, tr {
+    display: block;
+    width: 100%;
+  }
+
+  tr {
+    margin-bottom: 1vh;
+  }
+
+  thead {
+    display: none;
+  }
+
+  tbody tr {
+    background-color: #1c1c1c;
+    padding: 2vh;
+    margin-bottom: 2vh;
+    border-radius: 10px;
+  }
+
+  tbody td {
+    display: flex;
+    justify-content: space-between;
+    padding: 1vh 0;
+  }
+
+  tbody td:before {
+    content: attr(data-label);
+    flex-basis: 50%;
+    text-align: left;
+    padding-right: 1vw;
+    color: #aaaaaa;
+  }
+
+  tbody td:last-child {
+    justify-content: flex-end;
+  }
+}
+
+#add-service{
+  width:30vw;
+ margin-top: 5vh;
+
+}
+#add-service div{
+  width: 100%;
+}
+#add-service input, #add-service textarea{
+  width: 100%;
+  border-radius: 5px;
+  height: 8vh;
+  margin-bottom: 2vh;
+  padding: 1vh 1vw;
+  font-size: 1.2vw;
+  box-shadow: 3px 3px 10px yellow;
+  border: none;
+  background-color: transparent;
+  color:white;
+}
+#add-service textarea{
+  height: 15vh;
+}
+
+.add-service-page{
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  padding: 4vh 2vw;
+  
+}
+.add-service-page h1{
+  color:gold;
+}
+#add-service button{
+  width: 30%;
+  height: 8vh;
+  border: none;
+  background-color: gold;
+  color:black;
+  font-size: 1.5vw;
+  border-radius: 5px;
+  font-weight: bold;
+  margin-top: 2vh;
+}
+#upload-service{
+  background-color: #1c1c1c;
+  height: 8vh;
+  padding: 1vh 1vw;
+  background-color: transparent;
+  color: white;
+  box-shadow: 3px 3px 10px yellow;
+
+}
+#topic-cost{
+  display: flex;
+  gap:3px;
+}

@@ -13,7 +13,7 @@ const contactSchema = new mongoose.Schema({
         type:String,
         required:true
     }
-})
+}, {timestamps:true})
 // creating new collection 'contact'
 const Contact = new mongoose.model("contact", contactSchema)
 export default Contact

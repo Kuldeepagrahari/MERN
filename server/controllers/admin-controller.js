@@ -3,7 +3,7 @@ import Contact from "../models/contactModel.js"
 import Service from "../models/serviceModel.js"
 const fetchingUserData = async (req, res) => {
    try{
-    const allUserdata = await User.find().select({password:0})
+    const allUserdata = await User.find({isAdmin:{$ne:true}}).select({password:0}).sort({createdAt:-1})
 
     if(!allUserdata || allUserdata.length === 0 ){
       res.status(404).json("Users Does not found")
@@ -18,7 +18,7 @@ const fetchingUserData = async (req, res) => {
 
 const fetchingContData = async(req, res) => {
  try{
-      const allContData = await Contact.find()
+      const allContData = await Contact.find({email:{$ne:"22bcs144@iiitdmj.ac.in"}}).sort({createdAt: -1})
 
       if(!allContData || allContData.length === 0 ){
         res.status(404).json("No COntacts found")

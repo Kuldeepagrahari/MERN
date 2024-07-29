@@ -58,7 +58,7 @@ const AdminUsers = () => {
 
   return (
     <div>
-      <h1>users</h1>
+      <h1 style={{color:"white", fontSize:"2vw" , backgroundColor:"#1c1c1c", padding:"2vh 2vw", borderRadius:"10px"}}> Currently total {AllUserData.length} Users are registered in your application</h1>
 
       <table>
         <thead>
