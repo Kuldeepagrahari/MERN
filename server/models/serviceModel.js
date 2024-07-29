@@ -1,6 +1,10 @@
 import {model, Schema} from "mongoose"
 
 const ServiceSchema = new Schema({
+    image:{
+        type:String,
+        required:true
+    },
     topic:{
         type:String,
         required:true

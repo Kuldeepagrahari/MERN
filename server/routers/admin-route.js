@@ -12,4 +12,7 @@ adminRouter.route("/users/delete/:id").delete(userAuthMiddleware, adminMiddlewar
 
 adminRouter.route("/contacts/delete/:id").delete(userAuthMiddleware, adminMiddleware, adminController.deleteContact)
 
+adminRouter.route("/service/add").post(userAuthMiddleware, adminMiddleware, adminController.addService)
+adminRouter.route("/service/delete/:id").delete(userAuthMiddleware, adminMiddleware, adminController.deleteService)
+
 export default adminRouter

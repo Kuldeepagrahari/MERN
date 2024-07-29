@@ -15,6 +15,7 @@ import AdminContacts from "./pages/AdminContacts.jsx"
 import AdminUsers from "./pages/AdminUsers.jsx"
 import AdminAddProject from "./pages/AdminAddProject.jsx"
 import AdminAddService from "./pages/AdminAddService.jsx"
+import AdminUpdateService from "./pages/AdminUpdateService.jsx"
 
 function App() {
 
@@ -36,8 +37,10 @@ function App() {
          <Route path="users" element={<AdminUsers></AdminUsers>}/>
          <Route path="project" element={<AdminAddProject/>}/>
          <Route path="service" element={<AdminAddService/>}/>
+         
 
       </Route>
+      <Route path="serviceUpdate" element={<AdminUpdateService/>}/>
     </Routes>
        
     </div>

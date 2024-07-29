@@ -14,6 +14,9 @@ const Navbar = () => {
           <NavLink to="/about" activeClassName='active'> <li>About</li></NavLink>
           <NavLink to="/services" activeClassName='active'><li>Services</li></NavLink>
           <NavLink to="/contact" activeClassName='active'> <li>Contact</li></NavLink>
+          {
+            userdata.isAdmin ? <NavLink to="/admin"> <button id="admin-btn">Admin Panel</button></NavLink> : <></>
+          }
           {isloggedIn ? <> <button style={{color:"pink", padding:"1.5vh 1.5vw" ,borderRadius:"20px", backgroundColor:"black",fontSize:"1.3vw", border:"2px solid, pink"}}>{userdata.username}</button>
              <NavLink to="/logout"><li style={{padding:"1.5vh 1.5vw", backgroundColor:"blue",border:"none", borderRadius:"10px", color:"white", fontSize:"1.5vw"}}>Logout</li></NavLink></> : 
              <>  <NavLink to="/login" activeClassName='active'><li>Login</li></NavLink>

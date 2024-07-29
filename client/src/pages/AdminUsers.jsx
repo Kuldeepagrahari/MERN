@@ -1,5 +1,8 @@
 import React, { useEffect, useState } from 'react'
 import { useAuth } from '../storeContext/authContext'
+import { toast } from 'react-toastify'
+import { MdDelete } from "react-icons/md";
+import { FiDelete } from "react-icons/fi";
 
 const AdminUsers = () => {
     const {AuthorizationToken}  = useAuth()
@@ -10,7 +13,7 @@ const AdminUsers = () => {
             const allUsersdataResponse = await fetch('http://localhost:5000/api/admin/users',{
                 method:'GET',
                 headers:{
-                    'Authorization':AuthorizationToken
+                    Authorization:AuthorizationToken
                 }
             })
 
@@ -28,15 +31,31 @@ const AdminUsers = () => {
         fetchingAllUsers()
     },[])
 
-    const deleteUser = async () =>{
+    const deleteUser = async (id) =>{
         try{
-          await fetch('',{
-            method:'DELETE'
+          const response = await fetch(`http://localhost:5000/api/admin/users/delete/${id}`,{
+            method:'DELETE',
+            headers:{
+                Authorization: AuthorizationToken
+            }
+          
           })
+          console.log(response)
+
+          if(response.ok){
+            fetchingAllUsers()
+            toast.success("user deleted Successfully")
+          }else{
+            toast.error("error in deleting the user")
+          }
         }catch(err){
             console.log(err)
+            toast.error("backend error")
         }
     }
+
+
+
   return (
     <div>
       <h1>users</h1>
@@ -47,7 +66,7 @@ const AdminUsers = () => {
                 <td>Username</td>
                 <td>Email</td>
                 <td>Phone</td>
-                <td>Update</td>
+               
                 <td>Delete</td>
             </tr>
         </thead>
@@ -59,8 +78,8 @@ const AdminUsers = () => {
                             <td>{user.username}</td>
                             <td>{user.email}</td>
                             <td>{user.phone}</td>
-                            <td>Update</td>
-                            <td><button onClick={()=>deleteUser(user._id)}></button></td>
+                          
+                            <td><button style={{backgroundColor:"transparent", color:"orangered",border:"none", fontSize:"2vw"}} onClick={()=>deleteUser(user._id)}><FiDelete/></button></td>
                             </tr>
                     )
                 })

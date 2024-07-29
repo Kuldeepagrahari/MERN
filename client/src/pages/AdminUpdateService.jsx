@@ -3,60 +3,26 @@ import { BsCloudUpload } from 'react-icons/bs';
 import { toast } from 'react-toastify';
 import { useAuth } from '../storeContext/authContext';
 
-const AdminAddService = () => {
 
+const AdminUpdateService = () => {
     const {AuthorizationToken} = useAuth()
-  const [serviceData, setServiceData] = useState({
-    image: '',
-    topic: '',
-    desc: '',
-    cost: '',
-    link: '',
-  });
 
-  const handleInput = (e) => {
-    const name = e.target.name;
-    const value = name === 'image' ? e.target.files[0].name : e.target.value;
-    setServiceData({
-      ...serviceData,
-      [name]: value,
+    const [serviceData, setServiceData] = useState({
+      image: '',
+      topic: '',
+      desc: '',
+      cost: '',
+      link: '',
     });
-  };
+    const handleSubmit = async () => {
 
-  const handleSubmit = async (e) => {
-    e.preventDefault();
-    console.log(serviceData);
-
-    // Process form submission, e.g., send data to backend
-    const formData = new FormData();
-    formData.append('image', serviceData.image);
-    formData.append('topic', serviceData.topic);
-    formData.append('desc', serviceData.desc);
-    formData.append('cost', serviceData.cost);
-    formData.append('link', serviceData.link);
-
-    const response = await fetch('http://localhost:5000/api/admin/service/add',{
-        method:'POST',
-        headers:{
-            'Content-Type': "application/json",
-             Authorization : AuthorizationToken
-        },
-        body:JSON.stringify(serviceData)
-    })
-
-    if(response.ok){
-        toast.success("Service added successfully")
-    }else{
-        toast.error("Service does not able to added")
     }
+    const handleInput = async () => {
 
-    // Add your form submission logic here
-  };
-
+    }
   return (
     <div>
-      <h1>Add a Service</h1>
-      <form onSubmit={handleSubmit} id="add-service">
+       <form onSubmit={handleSubmit} id="add-service">
         <div>
           <label htmlFor="image" className="upload-button">
             <BsCloudUpload /> Upload Service Image
@@ -106,10 +72,10 @@ const AdminAddService = () => {
             onChange={handleInput}
           />
         </div>
-        <button type="submit">Submit</button>
+        <button type="submit">update</button>
       </form>
     </div>
-  );
-};
+  )
+}
 
-export default AdminAddService;
+export default AdminUpdateService

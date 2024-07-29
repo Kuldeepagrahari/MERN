@@ -66,7 +66,7 @@ const About = () => {
               <h1>Kuldeep Agrahari</h1>
               <p>Persuing my Btech <span>(2022 - 26)</span>in <span>CSE</span> from </p>
               <h3 style={{color:"rgb(82, 231, 245)"}}>PDPM IIIT DM, Jabalpur</h3>
-              <p>I Have great <span>PROBLEM SOLVING</span> Skills, Good at <span>Full Stack Development</span> and good at Core CS Subjects. You can Download my CV <Link to=""><button id="resume-btn">Resume</button></Link></p>
+              <p>I Have great <span>PROBLEM SOLVING</span> Skills, Good at <span>Full Stack Development</span> and good at Core CS Subjects. You can Download my CV <Link to="https://drive.google.com/file/d/1W0YiLxw6C2zBYPjRUmizpgq5BuDdmbTB/view?usp=sharing"><button id="resume-btn">Resume</button></Link></p>
               <div className="about-me-cont">
                 <h5><img src="https://img.icons8.com/?size=96&id=13800&format=png" alt="" /> Sarai Akil Kaushambi, Prayagraj, UP, India</h5>
                 <div className="phone-email">
